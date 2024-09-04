@@ -8,11 +8,7 @@ pipeline {
           git branch: 'main', url: 'https://github.com/JeetenShah76/lbg-vat-calculator.git'
         }
     }
-    stage('SonarQube Analysis') {
-      environment {
-        scannerHome = tool 'sonarqube'
-      }
-  stage('Install') {
+    stage('Install') {
         steps {
             // Install the ReactJS dependencies
             sh "npm install"
@@ -24,7 +20,11 @@ pipeline {
           sh "npm test"
         }
     }
-        steps {
+    stage('SonarQube Analysis') {
+      environment {
+        scannerHome = tool 'sonarqube'
+      }
+         steps {
             withSonarQubeEnv('sonar-qube-1') {        
               sh "${scannerHome}/bin/sonar-scanner"
         }
