@@ -1,3 +1,4 @@
+// This adds install and test stages before static code analysis
 pipeline {
   agent any
 
@@ -23,15 +24,15 @@ pipeline {
     stage('SonarQube Analysis') {
       environment {
         scannerHome = tool 'sonarqube'
-      }
-         steps {
+        }
+        steps {
             withSonarQubeEnv('sonar-qube-1') {        
               sh "${scannerHome}/bin/sonar-scanner"
         }
         timeout(time: 10, unit: 'MINUTES'){
           waitForQualityGate abortPipeline: true
+          }
         }
     }
   }
-}
-}
+  }
