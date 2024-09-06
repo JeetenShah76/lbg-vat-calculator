@@ -8,7 +8,7 @@ function App() {
   const [netPrice, setNetPrice] = useState(0.0);
   const [grossPrice, setGrossPrice] = useState(0.0);
   const [vatToPay, setVatToPay] = useState(0.0);
-  const [vatRate, setVatRate] = useState(15.0);
+  const [vatRate, setVatRate] = useState(20.0);
 
   const handleNetPriceChange = (price) => {
     const gross_price = price * ((vatRate / 100) + 1);
@@ -22,6 +22,7 @@ function App() {
     setNetPrice(net_price);
     setGrossPrice(price);
     setVatToPay(price - net_price);
+    price.toFixed(2);
   };
 
   const handleVatRateChanged = (rate) => {
