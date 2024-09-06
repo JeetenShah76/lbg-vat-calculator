@@ -8,7 +8,7 @@ function App() {
   const [netPrice, setNetPrice] = useState(0.0);
   const [grossPrice, setGrossPrice] = useState(0.0);
   const [vatToPay, setVatToPay] = useState(0.0);
-  const [vatRate, setVatRate] = useState(20.0);
+  const [vatRate, setVatRate] = useState(15.0);
 
   const handleNetPriceChange = (price) => {
     const gross_price = price * ((vatRate / 100) + 1);
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className='header field'>
-      JEETEN'S VAT CALCULATOR
+       JEETEN'S VAT CALCULATOR
       <div className='colour-border'>
         <VatRateField customstyle="field" vatRateChanged={handleVatRateChanged} value={vatRate} updatePrices={updatePrices} />
         <PriceEntryField customstyle="field" label="Price excl VAT: " priceChanged={handleNetPriceChange} price={netPrice === 0.0 ? "" : netPrice} />
