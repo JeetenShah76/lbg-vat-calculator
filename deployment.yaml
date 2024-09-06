@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: lbgcalc
-          image: jeetenshah76/vatcal:latest
+          image: dockerid/image:latest
           imagePullPolicy: Always
           resources:
             requests:
