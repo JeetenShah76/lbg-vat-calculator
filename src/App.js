@@ -23,6 +23,7 @@ function App() {
     setGrossPrice(price);
     setVatToPay(price - net_price);
     price.toFixed(2);
+    gross_price.toFixed(2);
   };
 
   const handleVatRateChanged = (rate) => {
